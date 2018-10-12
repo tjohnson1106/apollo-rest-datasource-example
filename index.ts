@@ -21,6 +21,22 @@ const resolvers: IResolverObject = {
       const response = await fetch("https://randomuser.me/");
       const data = await response.json();
       return data.results;
-    }
+    },
+    randomPerson2: (_, _, { dataSources }) =>
+      dataSources.randomUserAPI.getPerson()
   }
 };
+
+// const randomUserAPI = new RandomUserDataSource();
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  dataSources: () => ({
+    randomUserAPI: new RandomUserDataSource()
+  })
+});
+
+server.listen().then(({ url }) => {
+  console.log(`Server ready at ${url}`);
+});

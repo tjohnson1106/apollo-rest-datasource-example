@@ -2,7 +2,7 @@
   "name": "apollo-data-source-rest",
   "version": "1.0.0",
   "description": "a simple example of apollo data source rest",
-  "main": "index.ts",
+  "main": "index.js",
   "author": "Thomas Johnson",
   "license": "MIT",
   "devDependencies": {
@@ -20,5 +20,6 @@
   },
   "scripts": {
     "start": "nodemon --exec ts-node index.ts"
-  }
+  },
+  "repository": "git@github.com:tjohnson1106/apollo-rest-datasource-example.git"
 }

@@ -14,3 +14,13 @@ const typeDefs = gql`
     randomPerson2: [Person!]!
   }
 `;
+
+const resolvers: IResolverObject = {
+  Query: {
+    randomPerson: async () => {
+      const response = await fetch("https://randomuser.me/");
+      const data = await response.json();
+      return data.results;
+    }
+  }
+};
